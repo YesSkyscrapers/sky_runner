@@ -3,7 +3,7 @@ import { spawn } from 'child_process'
 
 const fileExists = async (path) => {
     try {
-        let fileInfo = fs.stat(path)
+        let fileInfo = await fs.stat(path)
         return !!fileInfo
     } catch (err) {
         return false
@@ -12,9 +12,15 @@ const fileExists = async (path) => {
 
 const runCommand = ({ command, cwd, onLog }) => {
     return new Promise((resolve) => {
-        process = spawn(command.split(' ')[0], command.split(' ').slice(1, command.split(' ').length), {
-            cwd
-        })
+        if (command.split(' ').length == 1) {
+            process = spawn(command, {
+                cwd
+            })
+        } else {
+            process = spawn(command.split(' ')[0], command.split(' ').slice(1, command.split(' ').length), {
+                cwd
+            })
+        }
 
         process.stdout.on('data', (data) => {
             if (onLog) {

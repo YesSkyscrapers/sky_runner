@@ -55,6 +55,12 @@ const createRunner = (params) => {
                 onLog
             })
 
+            await runCommand({
+                command: `yarn`,
+                cwd: params.path,
+                onLog
+            })
+
             let command = `yarn start -port:${params.port}`
             process = spawn(command.split(' ')[0], command.split(' ').slice(1, command.split(' ').length), {
                 cwd: params.path
