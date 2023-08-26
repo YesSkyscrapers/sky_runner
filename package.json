@@ -1,0 +1,34 @@
+{
+    "dependencies": {
+        "esm": "^3.2.25",
+        "http-proxy": "^1.18.1",
+        "mime-types": "^2.1.30",
+        "moment": "^2.29.4",
+        "readline-sync": "^1.4.10",
+        "typeorm": "^0.2.43",
+        "uuid": "^8.3.2"
+    },
+    "scripts": {
+        "start": "node -r esm index.js"
+    },
+    "name": "sky_runner",
+    "version": "1.0.0",
+    "description": "runner for any process with opening gateway, multistart and hook rebuild",
+    "main": "src/index.js",
+    "devDependencies": {
+        "@types/node": "^17.0.18"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:YesSkyscrapers/sky_runner.git"
+    },
+    "keywords": [
+        "sky_runner"
+    ],
+    "author": "YesSkyscrapers",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/YesSkyscrapers/skyes_runner/issues"
+    },
+    "homepage": "https://github.com/YesSkyscrapers/skyes_runner#readme"
+}
