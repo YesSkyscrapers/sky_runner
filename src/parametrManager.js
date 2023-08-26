@@ -6,7 +6,7 @@ const parametrsFileName = 'parametrs.json'
 const init = async () => {
     let exists = await fileExists(parametrsFileName)
     if (!exists) {
-        await fs.writeFile(parametrsFileName, '{}', 'utf8')
+        await fs.writeFile(parametrsFileName, '[]', 'utf8')
     }
 }
 
