@@ -15,6 +15,7 @@ const getParams = async () => {
     let parametrsForSet = ['gateWayPort', 'reservedRoutePort1', 'reservedRoutePort2', 'targetPath', 'controlPort']
 
     let savedParametrs = await parametrManager.load()
+    console.log('savedParametrs', savedParametrs)
 
     let currentParams = parametrsForSet.map((param) => {
         let selectedParams = parametrs.find((item) => item.name == param)
