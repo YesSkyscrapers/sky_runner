@@ -88,8 +88,7 @@ const createRunner = (params) => {
 
     const stop = () => {
         logsManager.append(`process ${_index} killed.`)
-        process.stdin.pause()
-        process.kill()
+        process.kill('SIGTERM')
     }
 
     return {
