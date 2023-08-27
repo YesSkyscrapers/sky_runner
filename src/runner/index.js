@@ -81,14 +81,15 @@ const createRunner = (params) => {
             })
 
             process.on('close', (code) => {
-                logsManager.append(`process ${_index} (close): ${code}`)
+                logsManager.append(`process ${_index} (close): exitcode - ${code}`)
             })
         })
     }
 
     const stop = () => {
         logsManager.append(`process ${_index} killed.`)
-        process.kill(0)
+        process.stdin.pause()
+        process.kill()
     }
 
     return {

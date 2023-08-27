@@ -27,23 +27,7 @@ const listener = async (request, response) => {
             break
         }
         case 'hook': {
-            let body = []
-            request
-                .on('data', (chunk) => {
-                    body.push(chunk)
-                })
-                .on('end', () => {
-                    body = Buffer.concat(body).toString()
-
-                    logsManager.append(body)
-                    response.writeHead(200)
-                    response.end()
-                })
-
-            break
-        }
-        case 'rebuildSync': {
-            await runnerManager.runNewInstance()
+            runnerManager.runNewInstance()
             response.writeHead(200)
             response.end()
             break
