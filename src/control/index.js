@@ -10,7 +10,7 @@ const init = (_port) => {
     return new Promise((resolve) => {
         server = http.createServer(listener)
 
-        server.listen(port, 'localhost', (error) => {
+        server.listen(port, (error) => {
             console.log('Control started. Listen -', port)
             resolve()
         })
