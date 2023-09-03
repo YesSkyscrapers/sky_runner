@@ -1,6 +1,7 @@
 import logsManager from '../logsManager'
 import { spawn } from 'child_process'
 import { runCommand } from '../tools/tools'
+import config from '../../config'
 
 let index = 0
 
@@ -67,7 +68,7 @@ const createRunner = (params) => {
             })
 
             process.stdout.on('data', (data) => {
-                if (!isStarted && `${data}`.includes('started')) {
+                if (!isStarted && `${data}`.includes(config.startText)) {
                     isStarted = true
                     console.log(`Runner ${_index} started. Asked port - ${params.port}`)
                     logsManager.append(`Runner ${_index} started. Asked port - ${params.port}`)
